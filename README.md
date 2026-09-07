@@ -15,23 +15,3 @@ Coursework artifact from SNHU CS-340 (Client/Server Development), 2025.
   disaster), an interactive data table, a breed distribution chart, and a
   geolocation map that follows the selected row.
 - `screenshots/` — the dashboard running against the course database.
-
-## Credentials
-
-The notebook reads them from the environment instead of carrying the classroom
-values inline:
-
-```bash
-export MONGO_USER=...   # Windows: set MONGO_USER=...
-export MONGO_PASS=...
-```
-
-`HOST` in `animal_shelter.py` still points at the SNHU Apporto lab instance the
-assignment ran against, so this needs pointing at your own MongoDB to run outside
-that environment.
-
-## Notes
-
-The CRUD layer is deliberately separate from the dashboard — the dashboard never
-issues a query itself, it calls the module. That separation is the part of this
-artifact worth looking at.
