@@ -1,0 +1,172 @@
+{
+  "generated_utc": "2026-10-12T02:06:40Z",
+  "server_version": "8.0.4",
+  "host": "Linux x86_64 (local mongod, 127.0.0.1)",
+  "runs_per_query": 5,
+  "documents": 9999,
+  "geo_anchor_animal_id": "A746874",
+  "near_query_before_index": "refused by the server (NoQueryExecutionPlans, code 291): \"error processing query: ns=aac.animals limit=1Tree: GEONEAR field=location maxdist=2000 isNearSphere=0 Sort: {} Proj: {}\u2026\"",
+  "before": {
+    "water": {
+      "stage": "COLLSCAN",
+      "plan": "PROJECTION_SIMPLE > SORT > COLLSCAN",
+      "indexes_used": [],
+      "nReturned": 17,
+      "totalDocsExamined": 9999,
+      "totalKeysExamined": 0,
+      "executionTimeMillis_runs": [
+        11,
+        10,
+        11,
+        6,
+        6
+      ],
+      "executionTimeMillis_median": 10
+    },
+    "mountain": {
+      "stage": "COLLSCAN",
+      "plan": "PROJECTION_SIMPLE > SORT > COLLSCAN",
+      "indexes_used": [],
+      "nReturned": 5,
+      "totalDocsExamined": 9999,
+      "totalKeysExamined": 0,
+      "executionTimeMillis_runs": [
+        5,
+        5,
+        5,
+        6,
+        5
+      ],
+      "executionTimeMillis_median": 5
+    },
+    "disaster": {
+      "stage": "COLLSCAN",
+      "plan": "PROJECTION_SIMPLE > SORT > COLLSCAN",
+      "indexes_used": [],
+      "nReturned": 4,
+      "totalDocsExamined": 9999,
+      "totalKeysExamined": 0,
+      "executionTimeMillis_runs": [
+        6,
+        6,
+        5,
+        5,
+        5
+      ],
+      "executionTimeMillis_median": 5
+    },
+    "geo_within_2km": {
+      "stage": "COLLSCAN",
+      "plan": "PROJECTION_SIMPLE > COLLSCAN",
+      "indexes_used": [],
+      "nReturned": 55,
+      "totalDocsExamined": 9999,
+      "totalKeysExamined": 0,
+      "executionTimeMillis_runs": [
+        12,
+        12,
+        12,
+        13,
+        12
+      ],
+      "executionTimeMillis_median": 12
+    }
+  },
+  "after": {
+    "water": {
+      "stage": "IXSCAN",
+      "plan": "PROJECTION_SIMPLE > FETCH > SORT_MERGE > IXSCAN > IXSCAN > IXSCAN",
+      "indexes_used": [
+        "profile_esr"
+      ],
+      "nReturned": 17,
+      "totalDocsExamined": 17,
+      "totalKeysExamined": 17,
+      "executionTimeMillis_runs": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "executionTimeMillis_median": 0
+    },
+    "mountain": {
+      "stage": "IXSCAN",
+      "plan": "PROJECTION_SIMPLE > FETCH > SORT_MERGE > IXSCAN > IXSCAN > IXSCAN > IXSCAN > IXSCAN",
+      "indexes_used": [
+        "profile_esr"
+      ],
+      "nReturned": 5,
+      "totalDocsExamined": 5,
+      "totalKeysExamined": 5,
+      "executionTimeMillis_runs": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "executionTimeMillis_median": 0
+    },
+    "disaster": {
+      "stage": "IXSCAN",
+      "plan": "PROJECTION_SIMPLE > FETCH > SORT_MERGE > IXSCAN > IXSCAN > IXSCAN > IXSCAN > IXSCAN",
+      "indexes_used": [
+        "profile_esr"
+      ],
+      "nReturned": 4,
+      "totalDocsExamined": 4,
+      "totalKeysExamined": 4,
+      "executionTimeMillis_runs": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "executionTimeMillis_median": 0
+    },
+    "geo_within_2km": {
+      "stage": "IXSCAN",
+      "plan": "PROJECTION_SIMPLE > FETCH > IXSCAN",
+      "indexes_used": [
+        "location_2dsphere"
+      ],
+      "nReturned": 55,
+      "totalDocsExamined": 67,
+      "totalKeysExamined": 90,
+      "executionTimeMillis_runs": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "executionTimeMillis_median": 0
+    }
+  },
+  "storage_before": {
+    "count": 9999,
+    "size_bytes": 5163891,
+    "avgObjSize_bytes": 516,
+    "storageSize_bytes": 1462272,
+    "totalIndexSize_bytes": 114688,
+    "indexSizes_bytes": {
+      "_id_": 114688
+    }
+  },
+  "storage_after": {
+    "count": 9999,
+    "size_bytes": 5163891,
+    "avgObjSize_bytes": 516,
+    "storageSize_bytes": 1462272,
+    "totalIndexSize_bytes": 651264,
+    "indexSizes_bytes": {
+      "_id_": 114688,
+      "profile_esr": 376832,
+      "location_2dsphere": 159744
+    }
+  },
+  "index_ops_since_restart": null
+}

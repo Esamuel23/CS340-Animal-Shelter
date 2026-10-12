@@ -1,0 +1,10 @@
+Collection has 9,999 documents.
+
+attack                       | raw find() like CS 340   | enhanced read()
+------------------------------------------------------------------------------------------
+$where JavaScript            | 9,999 documents          | ValidationError: Operators are not allowed in read query.
+$ne null on breed            | 9,999 documents          | ValidationError: Operators are not allowed in read query.
+$regex match-all on name     | 9,999 documents          | ValidationError: Operators are not allowed in read query.
+$gt on animal_id             | 9,999 documents          | ValidationError: Operators are not allowed in read query.
+
+Legitimate equality lookup still works: ['A712291']

@@ -1,0 +1,462 @@
+{
+  "explainVersion": "1",
+  "queryPlanner": {
+    "namespace": "aac.animals",
+    "parsedQuery": {
+      "$and": [
+        {
+          "sex_upon_outcome": {
+            "$eq": "Intact Female"
+          }
+        },
+        {
+          "age_upon_outcome_in_weeks": {
+            "$lte": 156
+          }
+        },
+        {
+          "age_upon_outcome_in_weeks": {
+            "$gte": 26
+          }
+        },
+        {
+          "breed": {
+            "$in": [
+              "Chesapeake Bay Retriever",
+              "Labrador Retriever Mix",
+              "Newfoundland"
+            ]
+          }
+        }
+      ]
+    },
+    "indexFilterSet": false,
+    "planCacheShapeHash": "F3BEB7DF",
+    "planCacheKey": "CC2FD8A0",
+    "optimizationTimeMillis": 0,
+    "optimizedPipeline": true,
+    "maxIndexedOrSolutionsReached": false,
+    "maxIndexedAndSolutionsReached": false,
+    "maxScansToExplodeReached": false,
+    "prunedSimilarIndexes": false,
+    "winningPlan": {
+      "isCached": false,
+      "stage": "PROJECTION_SIMPLE",
+      "transformBy": {
+        "animal_id": true,
+        "name": true,
+        "animal_type": true,
+        "breed": true,
+        "color": true,
+        "sex_upon_outcome": true,
+        "age_upon_outcome": true,
+        "age_upon_outcome_in_weeks": true,
+        "outcome_type": true,
+        "location_lat": true,
+        "location_long": true,
+        "_id": false
+      },
+      "inputStage": {
+        "stage": "FETCH",
+        "inputStage": {
+          "stage": "SORT_MERGE",
+          "sortPattern": {
+            "age_upon_outcome_in_weeks": 1,
+            "_id": 1
+          },
+          "inputStages": [
+            {
+              "stage": "IXSCAN",
+              "keyPattern": {
+                "sex_upon_outcome": 1,
+                "breed": 1,
+                "age_upon_outcome_in_weeks": 1,
+                "_id": 1
+              },
+              "indexName": "profile_esr",
+              "isMultiKey": false,
+              "multiKeyPaths": {
+                "sex_upon_outcome": [],
+                "breed": [],
+                "age_upon_outcome_in_weeks": [],
+                "_id": []
+              },
+              "isUnique": false,
+              "isSparse": false,
+              "isPartial": false,
+              "indexVersion": 2,
+              "direction": "forward",
+              "indexBounds": {
+                "sex_upon_outcome": [
+                  "[\"Intact Female\", \"Intact Female\"]"
+                ],
+                "breed": [
+                  "[\"Chesapeake Bay Retriever\", \"Chesapeake Bay Retriever\"]"
+                ],
+                "age_upon_outcome_in_weeks": [
+                  "[26, 156]"
+                ],
+                "_id": [
+                  "[MinKey, MaxKey]"
+                ]
+              }
+            },
+            {
+              "stage": "IXSCAN",
+              "keyPattern": {
+                "sex_upon_outcome": 1,
+                "breed": 1,
+                "age_upon_outcome_in_weeks": 1,
+                "_id": 1
+              },
+              "indexName": "profile_esr",
+              "isMultiKey": false,
+              "multiKeyPaths": {
+                "sex_upon_outcome": [],
+                "breed": [],
+                "age_upon_outcome_in_weeks": [],
+                "_id": []
+              },
+              "isUnique": false,
+              "isSparse": false,
+              "isPartial": false,
+              "indexVersion": 2,
+              "direction": "forward",
+              "indexBounds": {
+                "sex_upon_outcome": [
+                  "[\"Intact Female\", \"Intact Female\"]"
+                ],
+                "breed": [
+                  "[\"Labrador Retriever Mix\", \"Labrador Retriever Mix\"]"
+                ],
+                "age_upon_outcome_in_weeks": [
+                  "[26, 156]"
+                ],
+                "_id": [
+                  "[MinKey, MaxKey]"
+                ]
+              }
+            },
+            {
+              "stage": "IXSCAN",
+              "keyPattern": {
+                "sex_upon_outcome": 1,
+                "breed": 1,
+                "age_upon_outcome_in_weeks": 1,
+                "_id": 1
+              },
+              "indexName": "profile_esr",
+              "isMultiKey": false,
+              "multiKeyPaths": {
+                "sex_upon_outcome": [],
+                "breed": [],
+                "age_upon_outcome_in_weeks": [],
+                "_id": []
+              },
+              "isUnique": false,
+              "isSparse": false,
+              "isPartial": false,
+              "indexVersion": 2,
+              "direction": "forward",
+              "indexBounds": {
+                "sex_upon_outcome": [
+                  "[\"Intact Female\", \"Intact Female\"]"
+                ],
+                "breed": [
+                  "[\"Newfoundland\", \"Newfoundland\"]"
+                ],
+                "age_upon_outcome_in_weeks": [
+                  "[26, 156]"
+                ],
+                "_id": [
+                  "[MinKey, MaxKey]"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    "rejectedPlans": []
+  },
+  "executionStats": {
+    "executionSuccess": true,
+    "nReturned": 17,
+    "executionTimeMillis": 0,
+    "totalKeysExamined": 17,
+    "totalDocsExamined": 17,
+    "executionStages": {
+      "isCached": false,
+      "stage": "PROJECTION_SIMPLE",
+      "nReturned": 17,
+      "executionTimeMillisEstimate": 0,
+      "works": 38,
+      "advanced": 17,
+      "needTime": 20,
+      "needYield": 0,
+      "saveState": 0,
+      "restoreState": 0,
+      "isEOF": 1,
+      "transformBy": {
+        "animal_id": true,
+        "name": true,
+        "animal_type": true,
+        "breed": true,
+        "color": true,
+        "sex_upon_outcome": true,
+        "age_upon_outcome": true,
+        "age_upon_outcome_in_weeks": true,
+        "outcome_type": true,
+        "location_lat": true,
+        "location_long": true,
+        "_id": false
+      },
+      "inputStage": {
+        "stage": "FETCH",
+        "nReturned": 17,
+        "executionTimeMillisEstimate": 0,
+        "works": 38,
+        "advanced": 17,
+        "needTime": 20,
+        "needYield": 0,
+        "saveState": 0,
+        "restoreState": 0,
+        "isEOF": 1,
+        "docsExamined": 17,
+        "alreadyHasObj": 0,
+        "inputStage": {
+          "stage": "SORT_MERGE",
+          "nReturned": 17,
+          "executionTimeMillisEstimate": 0,
+          "works": 37,
+          "advanced": 17,
+          "needTime": 20,
+          "needYield": 0,
+          "saveState": 0,
+          "restoreState": 0,
+          "isEOF": 1,
+          "sortPattern": {
+            "age_upon_outcome_in_weeks": 1,
+            "_id": 1
+          },
+          "dupsTested": 0,
+          "dupsDropped": 0,
+          "inputStages": [
+            {
+              "stage": "IXSCAN",
+              "nReturned": 0,
+              "executionTimeMillisEstimate": 0,
+              "works": 1,
+              "advanced": 0,
+              "needTime": 0,
+              "needYield": 0,
+              "saveState": 0,
+              "restoreState": 0,
+              "isEOF": 1,
+              "keyPattern": {
+                "sex_upon_outcome": 1,
+                "breed": 1,
+                "age_upon_outcome_in_weeks": 1,
+                "_id": 1
+              },
+              "indexName": "profile_esr",
+              "isMultiKey": false,
+              "multiKeyPaths": {
+                "sex_upon_outcome": [],
+                "breed": [],
+                "age_upon_outcome_in_weeks": [],
+                "_id": []
+              },
+              "isUnique": false,
+              "isSparse": false,
+              "isPartial": false,
+              "indexVersion": 2,
+              "direction": "forward",
+              "indexBounds": {
+                "sex_upon_outcome": [
+                  "[\"Intact Female\", \"Intact Female\"]"
+                ],
+                "breed": [
+                  "[\"Chesapeake Bay Retriever\", \"Chesapeake Bay Retriever\"]"
+                ],
+                "age_upon_outcome_in_weeks": [
+                  "[26, 156]"
+                ],
+                "_id": [
+                  "[MinKey, MaxKey]"
+                ]
+              },
+              "keysExamined": 0,
+              "seeks": 1,
+              "dupsTested": 0,
+              "dupsDropped": 0
+            },
+            {
+              "stage": "IXSCAN",
+              "nReturned": 17,
+              "executionTimeMillisEstimate": 0,
+              "works": 18,
+              "advanced": 17,
+              "needTime": 0,
+              "needYield": 0,
+              "saveState": 0,
+              "restoreState": 0,
+              "isEOF": 1,
+              "keyPattern": {
+                "sex_upon_outcome": 1,
+                "breed": 1,
+                "age_upon_outcome_in_weeks": 1,
+                "_id": 1
+              },
+              "indexName": "profile_esr",
+              "isMultiKey": false,
+              "multiKeyPaths": {
+                "sex_upon_outcome": [],
+                "breed": [],
+                "age_upon_outcome_in_weeks": [],
+                "_id": []
+              },
+              "isUnique": false,
+              "isSparse": false,
+              "isPartial": false,
+              "indexVersion": 2,
+              "direction": "forward",
+              "indexBounds": {
+                "sex_upon_outcome": [
+                  "[\"Intact Female\", \"Intact Female\"]"
+                ],
+                "breed": [
+                  "[\"Labrador Retriever Mix\", \"Labrador Retriever Mix\"]"
+                ],
+                "age_upon_outcome_in_weeks": [
+                  "[26, 156]"
+                ],
+                "_id": [
+                  "[MinKey, MaxKey]"
+                ]
+              },
+              "keysExamined": 17,
+              "seeks": 1,
+              "dupsTested": 0,
+              "dupsDropped": 0
+            },
+            {
+              "stage": "IXSCAN",
+              "nReturned": 0,
+              "executionTimeMillisEstimate": 0,
+              "works": 1,
+              "advanced": 0,
+              "needTime": 0,
+              "needYield": 0,
+              "saveState": 0,
+              "restoreState": 0,
+              "isEOF": 1,
+              "keyPattern": {
+                "sex_upon_outcome": 1,
+                "breed": 1,
+                "age_upon_outcome_in_weeks": 1,
+                "_id": 1
+              },
+              "indexName": "profile_esr",
+              "isMultiKey": false,
+              "multiKeyPaths": {
+                "sex_upon_outcome": [],
+                "breed": [],
+                "age_upon_outcome_in_weeks": [],
+                "_id": []
+              },
+              "isUnique": false,
+              "isSparse": false,
+              "isPartial": false,
+              "indexVersion": 2,
+              "direction": "forward",
+              "indexBounds": {
+                "sex_upon_outcome": [
+                  "[\"Intact Female\", \"Intact Female\"]"
+                ],
+                "breed": [
+                  "[\"Newfoundland\", \"Newfoundland\"]"
+                ],
+                "age_upon_outcome_in_weeks": [
+                  "[26, 156]"
+                ],
+                "_id": [
+                  "[MinKey, MaxKey]"
+                ]
+              },
+              "keysExamined": 0,
+              "seeks": 1,
+              "dupsTested": 0,
+              "dupsDropped": 0
+            }
+          ]
+        }
+      }
+    }
+  },
+  "queryShapeHash": "F7B720B9A2094CF567BE9F12413F1B95AA80EB336748AB24B0A17127EBF5843A",
+  "command": {
+    "aggregate": "animals",
+    "pipeline": [
+      {
+        "$match": {
+          "sex_upon_outcome": "Intact Female",
+          "breed": {
+            "$in": [
+              "Labrador Retriever Mix",
+              "Chesapeake Bay Retriever",
+              "Newfoundland"
+            ]
+          },
+          "age_upon_outcome_in_weeks": {
+            "$gte": 26,
+            "$lte": 156
+          }
+        }
+      },
+      {
+        "$sort": {
+          "age_upon_outcome_in_weeks": 1,
+          "_id": 1
+        }
+      },
+      {
+        "$project": {
+          "animal_id": 1,
+          "name": 1,
+          "animal_type": 1,
+          "breed": 1,
+          "color": 1,
+          "sex_upon_outcome": 1,
+          "age_upon_outcome": 1,
+          "age_upon_outcome_in_weeks": 1,
+          "outcome_type": 1,
+          "location_lat": 1,
+          "location_long": 1,
+          "_id": 0
+        }
+      }
+    ],
+    "cursor": {},
+    "$db": "aac"
+  },
+  "serverInfo": {
+    "host": "vm",
+    "port": 27017,
+    "version": "8.0.4",
+    "gitVersion": "bc35ab4305d9920d9d0491c1c9ef9b72383d31f9"
+  },
+  "serverParameters": {
+    "internalQueryFacetBufferSizeBytes": 104857600,
+    "internalQueryFacetMaxOutputDocSizeBytes": 104857600,
+    "internalLookupStageIntermediateDocumentMaxSizeBytes": 104857600,
+    "internalDocumentSourceGroupMaxMemoryBytes": 104857600,
+    "internalQueryMaxBlockingSortMemoryUsageBytes": 104857600,
+    "internalQueryProhibitBlockingMergeOnMongoS": 0,
+    "internalQueryMaxAddToSetBytes": 104857600,
+    "internalDocumentSourceSetWindowFieldsMaxMemoryBytes": 104857600,
+    "internalQueryFrameworkControl": "trySbeRestricted",
+    "internalQueryPlannerIgnoreIndexWithCollationForRegex": 1
+  },
+  "ok": 1.0
+}

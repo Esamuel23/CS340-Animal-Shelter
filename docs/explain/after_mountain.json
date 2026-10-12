@@ -1,0 +1,636 @@
+{
+  "explainVersion": "1",
+  "queryPlanner": {
+    "namespace": "aac.animals",
+    "parsedQuery": {
+      "$and": [
+        {
+          "sex_upon_outcome": {
+            "$eq": "Intact Male"
+          }
+        },
+        {
+          "age_upon_outcome_in_weeks": {
+            "$lte": 156
+          }
+        },
+        {
+          "age_upon_outcome_in_weeks": {
+            "$gte": 26
+          }
+        },
+        {
+          "breed": {
+            "$in": [
+              "Alaskan Malamute",
+              "German Shepherd",
+              "Old English Sheepdog",
+              "Rottweiler",
+              "Siberian Husky"
+            ]
+          }
+        }
+      ]
+    },
+    "indexFilterSet": false,
+    "planCacheShapeHash": "F3BEB7DF",
+    "planCacheKey": "CC2FD8A0",
+    "optimizationTimeMillis": 0,
+    "optimizedPipeline": true,
+    "maxIndexedOrSolutionsReached": false,
+    "maxIndexedAndSolutionsReached": false,
+    "maxScansToExplodeReached": false,
+    "prunedSimilarIndexes": false,
+    "winningPlan": {
+      "isCached": false,
+      "stage": "PROJECTION_SIMPLE",
+      "transformBy": {
+        "animal_id": true,
+        "name": true,
+        "animal_type": true,
+        "breed": true,
+        "color": true,
+        "sex_upon_outcome": true,
+        "age_upon_outcome": true,
+        "age_upon_outcome_in_weeks": true,
+        "outcome_type": true,
+        "location_lat": true,
+        "location_long": true,
+        "_id": false
+      },
+      "inputStage": {
+        "stage": "FETCH",
+        "inputStage": {
+          "stage": "SORT_MERGE",
+          "sortPattern": {
+            "age_upon_outcome_in_weeks": 1,
+            "_id": 1
+          },
+          "inputStages": [
+            {
+              "stage": "IXSCAN",
+              "keyPattern": {
+                "sex_upon_outcome": 1,
+                "breed": 1,
+                "age_upon_outcome_in_weeks": 1,
+                "_id": 1
+              },
+              "indexName": "profile_esr",
+              "isMultiKey": false,
+              "multiKeyPaths": {
+                "sex_upon_outcome": [],
+                "breed": [],
+                "age_upon_outcome_in_weeks": [],
+                "_id": []
+              },
+              "isUnique": false,
+              "isSparse": false,
+              "isPartial": false,
+              "indexVersion": 2,
+              "direction": "forward",
+              "indexBounds": {
+                "sex_upon_outcome": [
+                  "[\"Intact Male\", \"Intact Male\"]"
+                ],
+                "breed": [
+                  "[\"Alaskan Malamute\", \"Alaskan Malamute\"]"
+                ],
+                "age_upon_outcome_in_weeks": [
+                  "[26, 156]"
+                ],
+                "_id": [
+                  "[MinKey, MaxKey]"
+                ]
+              }
+            },
+            {
+              "stage": "IXSCAN",
+              "keyPattern": {
+                "sex_upon_outcome": 1,
+                "breed": 1,
+                "age_upon_outcome_in_weeks": 1,
+                "_id": 1
+              },
+              "indexName": "profile_esr",
+              "isMultiKey": false,
+              "multiKeyPaths": {
+                "sex_upon_outcome": [],
+                "breed": [],
+                "age_upon_outcome_in_weeks": [],
+                "_id": []
+              },
+              "isUnique": false,
+              "isSparse": false,
+              "isPartial": false,
+              "indexVersion": 2,
+              "direction": "forward",
+              "indexBounds": {
+                "sex_upon_outcome": [
+                  "[\"Intact Male\", \"Intact Male\"]"
+                ],
+                "breed": [
+                  "[\"German Shepherd\", \"German Shepherd\"]"
+                ],
+                "age_upon_outcome_in_weeks": [
+                  "[26, 156]"
+                ],
+                "_id": [
+                  "[MinKey, MaxKey]"
+                ]
+              }
+            },
+            {
+              "stage": "IXSCAN",
+              "keyPattern": {
+                "sex_upon_outcome": 1,
+                "breed": 1,
+                "age_upon_outcome_in_weeks": 1,
+                "_id": 1
+              },
+              "indexName": "profile_esr",
+              "isMultiKey": false,
+              "multiKeyPaths": {
+                "sex_upon_outcome": [],
+                "breed": [],
+                "age_upon_outcome_in_weeks": [],
+                "_id": []
+              },
+              "isUnique": false,
+              "isSparse": false,
+              "isPartial": false,
+              "indexVersion": 2,
+              "direction": "forward",
+              "indexBounds": {
+                "sex_upon_outcome": [
+                  "[\"Intact Male\", \"Intact Male\"]"
+                ],
+                "breed": [
+                  "[\"Old English Sheepdog\", \"Old English Sheepdog\"]"
+                ],
+                "age_upon_outcome_in_weeks": [
+                  "[26, 156]"
+                ],
+                "_id": [
+                  "[MinKey, MaxKey]"
+                ]
+              }
+            },
+            {
+              "stage": "IXSCAN",
+              "keyPattern": {
+                "sex_upon_outcome": 1,
+                "breed": 1,
+                "age_upon_outcome_in_weeks": 1,
+                "_id": 1
+              },
+              "indexName": "profile_esr",
+              "isMultiKey": false,
+              "multiKeyPaths": {
+                "sex_upon_outcome": [],
+                "breed": [],
+                "age_upon_outcome_in_weeks": [],
+                "_id": []
+              },
+              "isUnique": false,
+              "isSparse": false,
+              "isPartial": false,
+              "indexVersion": 2,
+              "direction": "forward",
+              "indexBounds": {
+                "sex_upon_outcome": [
+                  "[\"Intact Male\", \"Intact Male\"]"
+                ],
+                "breed": [
+                  "[\"Rottweiler\", \"Rottweiler\"]"
+                ],
+                "age_upon_outcome_in_weeks": [
+                  "[26, 156]"
+                ],
+                "_id": [
+                  "[MinKey, MaxKey]"
+                ]
+              }
+            },
+            {
+              "stage": "IXSCAN",
+              "keyPattern": {
+                "sex_upon_outcome": 1,
+                "breed": 1,
+                "age_upon_outcome_in_weeks": 1,
+                "_id": 1
+              },
+              "indexName": "profile_esr",
+              "isMultiKey": false,
+              "multiKeyPaths": {
+                "sex_upon_outcome": [],
+                "breed": [],
+                "age_upon_outcome_in_weeks": [],
+                "_id": []
+              },
+              "isUnique": false,
+              "isSparse": false,
+              "isPartial": false,
+              "indexVersion": 2,
+              "direction": "forward",
+              "indexBounds": {
+                "sex_upon_outcome": [
+                  "[\"Intact Male\", \"Intact Male\"]"
+                ],
+                "breed": [
+                  "[\"Siberian Husky\", \"Siberian Husky\"]"
+                ],
+                "age_upon_outcome_in_weeks": [
+                  "[26, 156]"
+                ],
+                "_id": [
+                  "[MinKey, MaxKey]"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    "rejectedPlans": []
+  },
+  "executionStats": {
+    "executionSuccess": true,
+    "nReturned": 5,
+    "executionTimeMillis": 0,
+    "totalKeysExamined": 5,
+    "totalDocsExamined": 5,
+    "executionStages": {
+      "isCached": false,
+      "stage": "PROJECTION_SIMPLE",
+      "nReturned": 5,
+      "executionTimeMillisEstimate": 0,
+      "works": 16,
+      "advanced": 5,
+      "needTime": 10,
+      "needYield": 0,
+      "saveState": 0,
+      "restoreState": 0,
+      "isEOF": 1,
+      "transformBy": {
+        "animal_id": true,
+        "name": true,
+        "animal_type": true,
+        "breed": true,
+        "color": true,
+        "sex_upon_outcome": true,
+        "age_upon_outcome": true,
+        "age_upon_outcome_in_weeks": true,
+        "outcome_type": true,
+        "location_lat": true,
+        "location_long": true,
+        "_id": false
+      },
+      "inputStage": {
+        "stage": "FETCH",
+        "nReturned": 5,
+        "executionTimeMillisEstimate": 0,
+        "works": 16,
+        "advanced": 5,
+        "needTime": 10,
+        "needYield": 0,
+        "saveState": 0,
+        "restoreState": 0,
+        "isEOF": 1,
+        "docsExamined": 5,
+        "alreadyHasObj": 0,
+        "inputStage": {
+          "stage": "SORT_MERGE",
+          "nReturned": 5,
+          "executionTimeMillisEstimate": 0,
+          "works": 15,
+          "advanced": 5,
+          "needTime": 10,
+          "needYield": 0,
+          "saveState": 0,
+          "restoreState": 0,
+          "isEOF": 1,
+          "sortPattern": {
+            "age_upon_outcome_in_weeks": 1,
+            "_id": 1
+          },
+          "dupsTested": 0,
+          "dupsDropped": 0,
+          "inputStages": [
+            {
+              "stage": "IXSCAN",
+              "nReturned": 1,
+              "executionTimeMillisEstimate": 0,
+              "works": 2,
+              "advanced": 1,
+              "needTime": 0,
+              "needYield": 0,
+              "saveState": 0,
+              "restoreState": 0,
+              "isEOF": 1,
+              "keyPattern": {
+                "sex_upon_outcome": 1,
+                "breed": 1,
+                "age_upon_outcome_in_weeks": 1,
+                "_id": 1
+              },
+              "indexName": "profile_esr",
+              "isMultiKey": false,
+              "multiKeyPaths": {
+                "sex_upon_outcome": [],
+                "breed": [],
+                "age_upon_outcome_in_weeks": [],
+                "_id": []
+              },
+              "isUnique": false,
+              "isSparse": false,
+              "isPartial": false,
+              "indexVersion": 2,
+              "direction": "forward",
+              "indexBounds": {
+                "sex_upon_outcome": [
+                  "[\"Intact Male\", \"Intact Male\"]"
+                ],
+                "breed": [
+                  "[\"Alaskan Malamute\", \"Alaskan Malamute\"]"
+                ],
+                "age_upon_outcome_in_weeks": [
+                  "[26, 156]"
+                ],
+                "_id": [
+                  "[MinKey, MaxKey]"
+                ]
+              },
+              "keysExamined": 1,
+              "seeks": 1,
+              "dupsTested": 0,
+              "dupsDropped": 0
+            },
+            {
+              "stage": "IXSCAN",
+              "nReturned": 1,
+              "executionTimeMillisEstimate": 0,
+              "works": 2,
+              "advanced": 1,
+              "needTime": 0,
+              "needYield": 0,
+              "saveState": 0,
+              "restoreState": 0,
+              "isEOF": 1,
+              "keyPattern": {
+                "sex_upon_outcome": 1,
+                "breed": 1,
+                "age_upon_outcome_in_weeks": 1,
+                "_id": 1
+              },
+              "indexName": "profile_esr",
+              "isMultiKey": false,
+              "multiKeyPaths": {
+                "sex_upon_outcome": [],
+                "breed": [],
+                "age_upon_outcome_in_weeks": [],
+                "_id": []
+              },
+              "isUnique": false,
+              "isSparse": false,
+              "isPartial": false,
+              "indexVersion": 2,
+              "direction": "forward",
+              "indexBounds": {
+                "sex_upon_outcome": [
+                  "[\"Intact Male\", \"Intact Male\"]"
+                ],
+                "breed": [
+                  "[\"German Shepherd\", \"German Shepherd\"]"
+                ],
+                "age_upon_outcome_in_weeks": [
+                  "[26, 156]"
+                ],
+                "_id": [
+                  "[MinKey, MaxKey]"
+                ]
+              },
+              "keysExamined": 1,
+              "seeks": 1,
+              "dupsTested": 0,
+              "dupsDropped": 0
+            },
+            {
+              "stage": "IXSCAN",
+              "nReturned": 0,
+              "executionTimeMillisEstimate": 0,
+              "works": 1,
+              "advanced": 0,
+              "needTime": 0,
+              "needYield": 0,
+              "saveState": 0,
+              "restoreState": 0,
+              "isEOF": 1,
+              "keyPattern": {
+                "sex_upon_outcome": 1,
+                "breed": 1,
+                "age_upon_outcome_in_weeks": 1,
+                "_id": 1
+              },
+              "indexName": "profile_esr",
+              "isMultiKey": false,
+              "multiKeyPaths": {
+                "sex_upon_outcome": [],
+                "breed": [],
+                "age_upon_outcome_in_weeks": [],
+                "_id": []
+              },
+              "isUnique": false,
+              "isSparse": false,
+              "isPartial": false,
+              "indexVersion": 2,
+              "direction": "forward",
+              "indexBounds": {
+                "sex_upon_outcome": [
+                  "[\"Intact Male\", \"Intact Male\"]"
+                ],
+                "breed": [
+                  "[\"Old English Sheepdog\", \"Old English Sheepdog\"]"
+                ],
+                "age_upon_outcome_in_weeks": [
+                  "[26, 156]"
+                ],
+                "_id": [
+                  "[MinKey, MaxKey]"
+                ]
+              },
+              "keysExamined": 0,
+              "seeks": 1,
+              "dupsTested": 0,
+              "dupsDropped": 0
+            },
+            {
+              "stage": "IXSCAN",
+              "nReturned": 1,
+              "executionTimeMillisEstimate": 0,
+              "works": 2,
+              "advanced": 1,
+              "needTime": 0,
+              "needYield": 0,
+              "saveState": 0,
+              "restoreState": 0,
+              "isEOF": 1,
+              "keyPattern": {
+                "sex_upon_outcome": 1,
+                "breed": 1,
+                "age_upon_outcome_in_weeks": 1,
+                "_id": 1
+              },
+              "indexName": "profile_esr",
+              "isMultiKey": false,
+              "multiKeyPaths": {
+                "sex_upon_outcome": [],
+                "breed": [],
+                "age_upon_outcome_in_weeks": [],
+                "_id": []
+              },
+              "isUnique": false,
+              "isSparse": false,
+              "isPartial": false,
+              "indexVersion": 2,
+              "direction": "forward",
+              "indexBounds": {
+                "sex_upon_outcome": [
+                  "[\"Intact Male\", \"Intact Male\"]"
+                ],
+                "breed": [
+                  "[\"Rottweiler\", \"Rottweiler\"]"
+                ],
+                "age_upon_outcome_in_weeks": [
+                  "[26, 156]"
+                ],
+                "_id": [
+                  "[MinKey, MaxKey]"
+                ]
+              },
+              "keysExamined": 1,
+              "seeks": 1,
+              "dupsTested": 0,
+              "dupsDropped": 0
+            },
+            {
+              "stage": "IXSCAN",
+              "nReturned": 2,
+              "executionTimeMillisEstimate": 0,
+              "works": 3,
+              "advanced": 2,
+              "needTime": 0,
+              "needYield": 0,
+              "saveState": 0,
+              "restoreState": 0,
+              "isEOF": 1,
+              "keyPattern": {
+                "sex_upon_outcome": 1,
+                "breed": 1,
+                "age_upon_outcome_in_weeks": 1,
+                "_id": 1
+              },
+              "indexName": "profile_esr",
+              "isMultiKey": false,
+              "multiKeyPaths": {
+                "sex_upon_outcome": [],
+                "breed": [],
+                "age_upon_outcome_in_weeks": [],
+                "_id": []
+              },
+              "isUnique": false,
+              "isSparse": false,
+              "isPartial": false,
+              "indexVersion": 2,
+              "direction": "forward",
+              "indexBounds": {
+                "sex_upon_outcome": [
+                  "[\"Intact Male\", \"Intact Male\"]"
+                ],
+                "breed": [
+                  "[\"Siberian Husky\", \"Siberian Husky\"]"
+                ],
+                "age_upon_outcome_in_weeks": [
+                  "[26, 156]"
+                ],
+                "_id": [
+                  "[MinKey, MaxKey]"
+                ]
+              },
+              "keysExamined": 2,
+              "seeks": 1,
+              "dupsTested": 0,
+              "dupsDropped": 0
+            }
+          ]
+        }
+      }
+    }
+  },
+  "queryShapeHash": "F7B720B9A2094CF567BE9F12413F1B95AA80EB336748AB24B0A17127EBF5843A",
+  "command": {
+    "aggregate": "animals",
+    "pipeline": [
+      {
+        "$match": {
+          "sex_upon_outcome": "Intact Male",
+          "breed": {
+            "$in": [
+              "German Shepherd",
+              "Alaskan Malamute",
+              "Old English Sheepdog",
+              "Siberian Husky",
+              "Rottweiler"
+            ]
+          },
+          "age_upon_outcome_in_weeks": {
+            "$gte": 26,
+            "$lte": 156
+          }
+        }
+      },
+      {
+        "$sort": {
+          "age_upon_outcome_in_weeks": 1,
+          "_id": 1
+        }
+      },
+      {
+        "$project": {
+          "animal_id": 1,
+          "name": 1,
+          "animal_type": 1,
+          "breed": 1,
+          "color": 1,
+          "sex_upon_outcome": 1,
+          "age_upon_outcome": 1,
+          "age_upon_outcome_in_weeks": 1,
+          "outcome_type": 1,
+          "location_lat": 1,
+          "location_long": 1,
+          "_id": 0
+        }
+      }
+    ],
+    "cursor": {},
+    "$db": "aac"
+  },
+  "serverInfo": {
+    "host": "vm",
+    "port": 27017,
+    "version": "8.0.4",
+    "gitVersion": "bc35ab4305d9920d9d0491c1c9ef9b72383d31f9"
+  },
+  "serverParameters": {
+    "internalQueryFacetBufferSizeBytes": 104857600,
+    "internalQueryFacetMaxOutputDocSizeBytes": 104857600,
+    "internalLookupStageIntermediateDocumentMaxSizeBytes": 104857600,
+    "internalDocumentSourceGroupMaxMemoryBytes": 104857600,
+    "internalQueryMaxBlockingSortMemoryUsageBytes": 104857600,
+    "internalQueryProhibitBlockingMergeOnMongoS": 0,
+    "internalQueryMaxAddToSetBytes": 104857600,
+    "internalDocumentSourceSetWindowFieldsMaxMemoryBytes": 104857600,
+    "internalQueryFrameworkControl": "trySbeRestricted",
+    "internalQueryPlannerIgnoreIndexWithCollationForRegex": 1
+  },
+  "ok": 1.0
+}

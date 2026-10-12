@@ -1,0 +1,6 @@
+# Test and tooling dependencies (same date and platform as requirements.txt).
+-r requirements.txt
+pytest==9.1.1
+mongomock==4.3.0
+# Only for scripts/capture_screenshots.py
+playwright==1.63.0

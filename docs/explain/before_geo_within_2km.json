@@ -1,0 +1,145 @@
+{
+  "explainVersion": "1",
+  "queryPlanner": {
+    "namespace": "aac.animals",
+    "parsedQuery": {
+      "location": {
+        "$geoWithin": {
+          "$centerSphere": [
+            [
+              -97.3408780722188,
+              30.5066578739455
+            ],
+            0.00031357300763550273
+          ]
+        }
+      }
+    },
+    "indexFilterSet": false,
+    "planCacheShapeHash": "49AF126F",
+    "planCacheKey": "DE2A3503",
+    "optimizationTimeMillis": 0,
+    "maxIndexedOrSolutionsReached": false,
+    "maxIndexedAndSolutionsReached": false,
+    "maxScansToExplodeReached": false,
+    "prunedSimilarIndexes": false,
+    "winningPlan": {
+      "isCached": false,
+      "stage": "PROJECTION_SIMPLE",
+      "transformBy": {
+        "_id": 0,
+        "animal_id": 1
+      },
+      "inputStage": {
+        "stage": "COLLSCAN",
+        "filter": {
+          "location": {
+            "$geoWithin": {
+              "$centerSphere": [
+                [
+                  -97.3408780722188,
+                  30.5066578739455
+                ],
+                0.00031357300763550273
+              ]
+            }
+          }
+        },
+        "direction": "forward"
+      }
+    },
+    "rejectedPlans": []
+  },
+  "executionStats": {
+    "executionSuccess": true,
+    "nReturned": 55,
+    "executionTimeMillis": 12,
+    "totalKeysExamined": 0,
+    "totalDocsExamined": 9999,
+    "executionStages": {
+      "isCached": false,
+      "stage": "PROJECTION_SIMPLE",
+      "nReturned": 55,
+      "executionTimeMillisEstimate": 5,
+      "works": 10000,
+      "advanced": 55,
+      "needTime": 9944,
+      "needYield": 0,
+      "saveState": 0,
+      "restoreState": 0,
+      "isEOF": 1,
+      "transformBy": {
+        "_id": 0,
+        "animal_id": 1
+      },
+      "inputStage": {
+        "stage": "COLLSCAN",
+        "filter": {
+          "location": {
+            "$geoWithin": {
+              "$centerSphere": [
+                [
+                  -97.3408780722188,
+                  30.5066578739455
+                ],
+                0.00031357300763550273
+              ]
+            }
+          }
+        },
+        "nReturned": 55,
+        "executionTimeMillisEstimate": 5,
+        "works": 10000,
+        "advanced": 55,
+        "needTime": 9944,
+        "needYield": 0,
+        "saveState": 0,
+        "restoreState": 0,
+        "isEOF": 1,
+        "direction": "forward",
+        "docsExamined": 9999
+      }
+    }
+  },
+  "queryShapeHash": "52255C9347249B0417966C86778E756DBA5DE6567A9CCF45F27AAF023B397949",
+  "command": {
+    "find": "animals",
+    "filter": {
+      "location": {
+        "$geoWithin": {
+          "$centerSphere": [
+            [
+              -97.3408780722188,
+              30.5066578739455
+            ],
+            0.00031357300763550273
+          ]
+        }
+      }
+    },
+    "projection": {
+      "_id": 0,
+      "animal_id": 1
+    },
+    "$db": "aac"
+  },
+  "serverInfo": {
+    "host": "vm",
+    "port": 27017,
+    "version": "8.0.4",
+    "gitVersion": "bc35ab4305d9920d9d0491c1c9ef9b72383d31f9"
+  },
+  "serverParameters": {
+    "internalQueryFacetBufferSizeBytes": 104857600,
+    "internalQueryFacetMaxOutputDocSizeBytes": 104857600,
+    "internalLookupStageIntermediateDocumentMaxSizeBytes": 104857600,
+    "internalDocumentSourceGroupMaxMemoryBytes": 104857600,
+    "internalQueryMaxBlockingSortMemoryUsageBytes": 104857600,
+    "internalQueryProhibitBlockingMergeOnMongoS": 0,
+    "internalQueryMaxAddToSetBytes": 104857600,
+    "internalDocumentSourceSetWindowFieldsMaxMemoryBytes": 104857600,
+    "internalQueryFrameworkControl": "trySbeRestricted",
+    "internalQueryPlannerIgnoreIndexWithCollationForRegex": 1
+  },
+  "ok": 1.0
+}

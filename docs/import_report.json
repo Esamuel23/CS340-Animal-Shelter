@@ -1,0 +1,13 @@
+{
+  "csv": "aac_shelter_outcomes.csv",
+  "csv_rows": 10000,
+  "inserted": 9999,
+  "rejected": [
+    {
+      "rec_num": 8055,
+      "animal_id": "A749253",
+      "code": 121,
+      "reason": "schema validation failed on: age_upon_outcome_in_weeks"
+    }
+  ]
+}

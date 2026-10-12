@@ -1,0 +1,274 @@
+{
+  "explainVersion": "1",
+  "queryPlanner": {
+    "namespace": "aac.animals",
+    "parsedQuery": {
+      "$and": [
+        {
+          "sex_upon_outcome": {
+            "$eq": "Intact Male"
+          }
+        },
+        {
+          "age_upon_outcome_in_weeks": {
+            "$lte": 300
+          }
+        },
+        {
+          "age_upon_outcome_in_weeks": {
+            "$gte": 20
+          }
+        },
+        {
+          "breed": {
+            "$in": [
+              "Bloodhound",
+              "Doberman Pinscher",
+              "German Shepherd",
+              "Golden Retriever",
+              "Rottweiler"
+            ]
+          }
+        }
+      ]
+    },
+    "indexFilterSet": false,
+    "planCacheShapeHash": "F3BEB7DF",
+    "planCacheKey": "95100533",
+    "optimizationTimeMillis": 0,
+    "optimizedPipeline": true,
+    "maxIndexedOrSolutionsReached": false,
+    "maxIndexedAndSolutionsReached": false,
+    "maxScansToExplodeReached": false,
+    "prunedSimilarIndexes": false,
+    "winningPlan": {
+      "isCached": false,
+      "stage": "PROJECTION_SIMPLE",
+      "transformBy": {
+        "animal_id": true,
+        "name": true,
+        "animal_type": true,
+        "breed": true,
+        "color": true,
+        "sex_upon_outcome": true,
+        "age_upon_outcome": true,
+        "age_upon_outcome_in_weeks": true,
+        "outcome_type": true,
+        "location_lat": true,
+        "location_long": true,
+        "_id": false
+      },
+      "inputStage": {
+        "stage": "SORT",
+        "sortPattern": {
+          "age_upon_outcome_in_weeks": 1,
+          "_id": 1
+        },
+        "memLimit": 104857600,
+        "type": "simple",
+        "inputStage": {
+          "stage": "COLLSCAN",
+          "filter": {
+            "$and": [
+              {
+                "sex_upon_outcome": {
+                  "$eq": "Intact Male"
+                }
+              },
+              {
+                "age_upon_outcome_in_weeks": {
+                  "$lte": 300
+                }
+              },
+              {
+                "age_upon_outcome_in_weeks": {
+                  "$gte": 20
+                }
+              },
+              {
+                "breed": {
+                  "$in": [
+                    "Bloodhound",
+                    "Doberman Pinscher",
+                    "German Shepherd",
+                    "Golden Retriever",
+                    "Rottweiler"
+                  ]
+                }
+              }
+            ]
+          },
+          "direction": "forward"
+        }
+      }
+    },
+    "rejectedPlans": []
+  },
+  "executionStats": {
+    "executionSuccess": true,
+    "nReturned": 4,
+    "executionTimeMillis": 5,
+    "totalKeysExamined": 0,
+    "totalDocsExamined": 9999,
+    "executionStages": {
+      "isCached": false,
+      "stage": "PROJECTION_SIMPLE",
+      "nReturned": 4,
+      "executionTimeMillisEstimate": 5,
+      "works": 10005,
+      "advanced": 4,
+      "needTime": 10000,
+      "needYield": 0,
+      "saveState": 0,
+      "restoreState": 0,
+      "isEOF": 1,
+      "transformBy": {
+        "animal_id": true,
+        "name": true,
+        "animal_type": true,
+        "breed": true,
+        "color": true,
+        "sex_upon_outcome": true,
+        "age_upon_outcome": true,
+        "age_upon_outcome_in_weeks": true,
+        "outcome_type": true,
+        "location_lat": true,
+        "location_long": true,
+        "_id": false
+      },
+      "inputStage": {
+        "stage": "SORT",
+        "nReturned": 4,
+        "executionTimeMillisEstimate": 5,
+        "works": 10005,
+        "advanced": 4,
+        "needTime": 10000,
+        "needYield": 0,
+        "saveState": 0,
+        "restoreState": 0,
+        "isEOF": 1,
+        "sortPattern": {
+          "age_upon_outcome_in_weeks": 1,
+          "_id": 1
+        },
+        "memLimit": 104857600,
+        "type": "simple",
+        "totalDataSizeSorted": 2446,
+        "usedDisk": false,
+        "spills": 0,
+        "spilledDataStorageSize": 0,
+        "inputStage": {
+          "stage": "COLLSCAN",
+          "filter": {
+            "$and": [
+              {
+                "sex_upon_outcome": {
+                  "$eq": "Intact Male"
+                }
+              },
+              {
+                "age_upon_outcome_in_weeks": {
+                  "$lte": 300
+                }
+              },
+              {
+                "age_upon_outcome_in_weeks": {
+                  "$gte": 20
+                }
+              },
+              {
+                "breed": {
+                  "$in": [
+                    "Bloodhound",
+                    "Doberman Pinscher",
+                    "German Shepherd",
+                    "Golden Retriever",
+                    "Rottweiler"
+                  ]
+                }
+              }
+            ]
+          },
+          "nReturned": 4,
+          "executionTimeMillisEstimate": 5,
+          "works": 10000,
+          "advanced": 4,
+          "needTime": 9995,
+          "needYield": 0,
+          "saveState": 0,
+          "restoreState": 0,
+          "isEOF": 1,
+          "direction": "forward",
+          "docsExamined": 9999
+        }
+      }
+    }
+  },
+  "queryShapeHash": "F7B720B9A2094CF567BE9F12413F1B95AA80EB336748AB24B0A17127EBF5843A",
+  "command": {
+    "aggregate": "animals",
+    "pipeline": [
+      {
+        "$match": {
+          "sex_upon_outcome": "Intact Male",
+          "breed": {
+            "$in": [
+              "Doberman Pinscher",
+              "German Shepherd",
+              "Golden Retriever",
+              "Bloodhound",
+              "Rottweiler"
+            ]
+          },
+          "age_upon_outcome_in_weeks": {
+            "$gte": 20,
+            "$lte": 300
+          }
+        }
+      },
+      {
+        "$sort": {
+          "age_upon_outcome_in_weeks": 1,
+          "_id": 1
+        }
+      },
+      {
+        "$project": {
+          "animal_id": 1,
+          "name": 1,
+          "animal_type": 1,
+          "breed": 1,
+          "color": 1,
+          "sex_upon_outcome": 1,
+          "age_upon_outcome": 1,
+          "age_upon_outcome_in_weeks": 1,
+          "outcome_type": 1,
+          "location_lat": 1,
+          "location_long": 1,
+          "_id": 0
+        }
+      }
+    ],
+    "cursor": {},
+    "$db": "aac"
+  },
+  "serverInfo": {
+    "host": "vm",
+    "port": 27017,
+    "version": "8.0.4",
+    "gitVersion": "bc35ab4305d9920d9d0491c1c9ef9b72383d31f9"
+  },
+  "serverParameters": {
+    "internalQueryFacetBufferSizeBytes": 104857600,
+    "internalQueryFacetMaxOutputDocSizeBytes": 104857600,
+    "internalLookupStageIntermediateDocumentMaxSizeBytes": 104857600,
+    "internalDocumentSourceGroupMaxMemoryBytes": 104857600,
+    "internalQueryMaxBlockingSortMemoryUsageBytes": 104857600,
+    "internalQueryProhibitBlockingMergeOnMongoS": 0,
+    "internalQueryMaxAddToSetBytes": 104857600,
+    "internalDocumentSourceSetWindowFieldsMaxMemoryBytes": 104857600,
+    "internalQueryFrameworkControl": "trySbeRestricted",
+    "internalQueryPlannerIgnoreIndexWithCollationForRegex": 1
+  },
+  "ok": 1.0
+}

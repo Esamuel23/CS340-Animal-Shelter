@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 96" role="img" aria-labelledby="t">
+  <title id="t">Grazioso Salvare</title>
+  <!-- Simple placeholder mark drawn for this project (the CS 340 logo file was never in the repo). -->
+  <circle cx="48" cy="48" r="44" fill="#1f5f8b"/>
+  <g fill="#ffffff">
+    <ellipse cx="48" cy="58" rx="15" ry="12"/>
+    <ellipse cx="30" cy="40" rx="6" ry="8"/>
+    <ellipse cx="42" cy="31" rx="6" ry="8"/>
+    <ellipse cx="55" cy="31" rx="6" ry="8"/>
+    <ellipse cx="67" cy="40" rx="6" ry="8"/>
+  </g>
+  <text x="104" y="45" font-family="Georgia, 'Times New Roman', serif" font-size="30" fill="#1f5f8b">Grazioso</text>
+  <text x="104" y="78" font-family="Georgia, 'Times New Roman', serif" font-size="30" fill="#c0612b">Salvare</text>
+</svg>
